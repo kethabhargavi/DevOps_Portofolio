@@ -2869,7 +2869,6 @@ body.intro-active #nav{
    <div class="journey-heading reveal">
      <div class="kicker">AWS DEVOPS LEARNING JOURNEY</div>
      <h2>From <span>learning</span> to building.</h2>
-     <p>This roadmap shows what I have actually practiced, what I have built, and the areas I am developing next.</p>
    </div>
 
    <div class="journey-roadmap">
@@ -2892,7 +2891,6 @@ body.intro-active #nav{
     <div class="reveal">
       <div class="kicker">Credentials</div>
       <h2>Learning in public.</h2>
-      <p class="cert-scroll-hint">Scroll sideways to explore · Click any certificate to view it full screen</p>
     </div>
 
     <div class="cert-wrap">
@@ -2953,7 +2951,7 @@ body.intro-active #nav{
  <div class="contact-modern reveal">
   <div class="contact-modern-grid">
    <div class="contact-main">
-    <div class="contact-kicker">08 / LET'S CONNECT</div>
+    <div class="contact-kicker">LET'S CONNECT</div>
     <h2>Let's build something<br><span>reliable.</span></h2>
     <p class="contact-lead">I'm an aspiring AWS DevOps Engineer focused on automation, CI/CD, containers and cloud infrastructure. I'm open to entry-level opportunities where I can contribute, learn from real systems and grow with a strong engineering team.</p>
     <div class="contact-status"><i></i> OPEN TO AWS DEVOPS & CLOUD OPPORTUNITIES</div>
@@ -3627,6 +3625,133 @@ draw();
   #home.current-home .current-glow {
     right: -35% !important;
     top: 38% !important;
+  }
+
+}
+/* =========================================================
+   FINAL MOBILE FIX FOR HOME DEVOPS VISUAL
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  #home.current-home {
+    min-height: 760px !important;
+    overflow: hidden !important;
+  }
+
+  /*
+     Keep the text/buttons at the top.
+     Put the complete DevOps visual underneath them.
+  */
+  #home.current-home .aws-system {
+    width: 78vw !important;
+    height: 78vw !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    top: auto !important;
+    bottom: 28px !important;
+
+    transform: translateX(-50%) !important;
+
+    opacity: .95 !important;
+
+    z-index: 4 !important;
+  }
+
+  /* Make the actual AWS cloud visible */
+  #home.current-home .aws-cloud {
+    width: 180px !important;
+    height: 108px !important;
+
+    opacity: 1 !important;
+  }
+
+  #home.current-home .aws-text {
+    font-size: 40px !important;
+  }
+
+  #home.current-home .aws-smile {
+    width: 64px !important;
+    height: 23px !important;
+
+    left: 58px !important;
+    top: 59px !important;
+  }
+
+  /* Keep the orbit visible */
+  #home.current-home .aws-system .orbit {
+    opacity: 1 !important;
+  }
+
+  #home.current-home .aws-system .o1,
+  #home.current-home .aws-system .o2,
+  #home.current-home .aws-system .o3 {
+    opacity: 1 !important;
+  }
+
+  /* Keep the glow behind the visual */
+  #home.current-home .current-glow {
+    width: 380px !important;
+    height: 380px !important;
+
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: -20px !important;
+
+    transform: translateX(-50%) !important;
+
+    opacity: .5 !important;
+  }
+
+  /* Keep the floor behind the visual */
+  #home.current-home .current-floor {
+    width: 380px !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    bottom: -35px !important;
+
+    transform: translateX(-50%) rotateX(65deg) !important;
+
+    opacity: .5 !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 390px) {
+
+  #home.current-home {
+    min-height: 720px !important;
+  }
+
+  #home.current-home .aws-system {
+    width: 76vw !important;
+    height: 76vw !important;
+
+    bottom: 22px !important;
+  }
+
+  #home.current-home .aws-cloud {
+    width: 165px !important;
+    height: 99px !important;
+  }
+
+  #home.current-home .aws-text {
+    font-size: 36px !important;
+  }
+
+  #home.current-home .aws-smile {
+    width: 58px !important;
+    left: 53px !important;
+    top: 54px !important;
   }
 }
 </style>
