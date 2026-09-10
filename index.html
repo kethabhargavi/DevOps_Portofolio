@@ -2869,6 +2869,7 @@ body.intro-active #nav{
    <div class="journey-heading reveal">
      <div class="kicker">AWS DEVOPS LEARNING JOURNEY</div>
      <h2>From <span>learning</span> to building.</h2>
+     <p>This roadmap shows what I have actually practiced, what I have built, and the areas I am developing next.</p>
    </div>
 
    <div class="journey-roadmap">
@@ -2891,6 +2892,7 @@ body.intro-active #nav{
     <div class="reveal">
       <div class="kicker">Credentials</div>
       <h2>Learning in public.</h2>
+      <p class="cert-scroll-hint">Scroll sideways to explore · Click any certificate to view it full screen</p>
     </div>
 
     <div class="cert-wrap">
@@ -2951,7 +2953,7 @@ body.intro-active #nav{
  <div class="contact-modern reveal">
   <div class="contact-modern-grid">
    <div class="contact-main">
-    <div class="contact-kicker">LET'S CONNECT</div>
+    <div class="contact-kicker">08 / LET'S CONNECT</div>
     <h2>Let's build something<br><span>reliable.</span></h2>
     <p class="contact-lead">I'm an aspiring AWS DevOps Engineer focused on automation, CI/CD, containers and cloud infrastructure. I'm open to entry-level opportunities where I can contribute, learn from real systems and grow with a strong engineering team.</p>
     <div class="contact-status"><i></i> OPEN TO AWS DEVOPS & CLOUD OPPORTUNITIES</div>
@@ -3424,14 +3426,24 @@ draw();
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN ONLY
-   DO NOT CHANGE YOUR EXISTING DESKTOP DESIGN
+   MOBILE RESPONSIVE FIX
+   Existing desktop design is NOT changed.
    ========================================================= */
 
-/* ---------- GLOBAL RESPONSIVE SAFETY ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html,
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -3441,53 +3453,6 @@ video,
 svg,
 canvas {
   max-width: 100%;
-  height: auto;
-}
-
-
-/* =========================================================
-   TABLET / SMALL LAPTOP
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-  .wrap {
-    max-width: 100%;
-  }
-
-  .hero-grid,
-  .workflow,
-  .skills-layout,
-  .project-stage,
-  .why-layout,
-  .contact-modern-grid {
-    min-width: 0;
-  }
-
-  .hero-copy,
-  .home-text,
-  .current-copy,
-  .project-content,
-  .about-modern-copy,
-  .contact-main,
-  .contact-side {
-    min-width: 0;
-  }
-
-  .project-links,
-  .project-stack,
-  .about-modern-actions,
-  .contact-links {
-    flex-wrap: wrap;
-  }
-
-  .hero-copy p,
-  .about-modern-lead,
-  .about-modern-copy p,
-  .contact-lead,
-  .contact-side p {
-    overflow-wrap: anywhere;
-  }
 }
 
 
@@ -3495,75 +3460,103 @@ canvas {
    TABLET
    ========================================================= */
 
-@media (max-width: 850px) {
+@media screen and (max-width: 900px) {
 
   .wrap {
-    width: 92vw;
+    width: 90%;
+    max-width: 100%;
   }
 
+  /* Main layouts become flexible */
   .hero-grid,
   .workflow,
   .skills-layout,
   .project-stage,
   .why-layout {
     width: 100%;
-    min-width: 0;
+    min-width: 0 !important;
   }
 
-  .photo-stage,
-  .skill-orb,
-  .orbit-why,
-  .journey-visual-new,
-  .journey-visual,
-  .project-visual {
+  /* Prevent children from forcing desktop width */
+  .hero-copy,
+  .home-text,
+  .current-copy,
+  .project-content,
+  .about-modern-copy,
+  .contact-main,
+  .contact-side {
+    min-width: 0 !important;
     max-width: 100%;
   }
 
-  .project-image-grid,
-  #certs .cert-wrap {
+  /* Text cannot push the page horizontally */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  span,
+  a {
     max-width: 100%;
-    -webkit-overflow-scrolling: touch;
+    overflow-wrap: anywhere;
   }
+
 }
 
 
 /* =========================================================
-   MOBILE
+   PHONE
    ========================================================= */
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
 
-  html {
-    font-size: 16px;
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
   }
 
   body {
-    width: 100%;
-    overflow-x: hidden;
+    min-width: 0 !important;
   }
 
   section {
+    width: 100%;
     max-width: 100%;
+    min-width: 0 !important;
   }
 
   .wrap {
-    width: 88vw;
+    width: 88%;
+    max-width: 88%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
-  /* ---------- NAVBAR ---------- */
+  /* =======================================================
+     NAVBAR
+     ======================================================= */
 
   #nav {
-    max-width: 90vw !important;
-    width: auto !important;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+
+    left: 12px !important;
+    right: 12px !important;
 
     overflow-x: auto !important;
     overflow-y: hidden !important;
 
+    white-space: nowrap;
+
     -webkit-overflow-scrolling: touch;
+
     scrollbar-width: none;
 
-    touch-action: pan-x;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
   }
 
   #nav::-webkit-scrollbar {
@@ -3571,15 +3564,17 @@ canvas {
   }
 
   #nav a {
-    flex: 0 0 auto;
-    white-space: nowrap;
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
   }
 
 
-  /* ---------- FIXED BRAND ---------- */
+  /* =======================================================
+     FIXED BRAND
+     ======================================================= */
 
   .site-brand-fixed {
-    max-width: 42vw;
+    max-width: 45vw;
 
     white-space: nowrap;
     overflow: hidden;
@@ -3587,161 +3582,341 @@ canvas {
   }
 
 
-  /* ---------- SECTION LABEL ---------- */
+  /* =======================================================
+     HOME / HERO
+     ======================================================= */
 
-  .section-label {
-    max-width: 70vw;
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 35px !important;
+  }
+
+  .hero-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-copy h1,
+  .hero-copy h2,
+  .hero-copy p {
+    max-width: 100% !important;
+  }
+
+  .home-text {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
 
-  /* ---------- CONTACT ---------- */
+  /* =======================================================
+     ABOUT
+     ======================================================= */
+
+  .about-modern-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .about-modern-lead,
+  .about-modern-copy p {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .about-modern-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 10px !important;
+  }
+
+
+  /* =======================================================
+     SKILLS
+     ======================================================= */
+
+  .skills-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .skill-category-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+
+  /* =======================================================
+     PROJECTS
+     ======================================================= */
+
+  .project-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .project-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .project-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .project-stack {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+
+  /* Keep your existing horizontal project cards */
+  .project-image-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-image-grid .project-vfx {
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    max-width: 82vw !important;
+  }
+
+
+  /* =======================================================
+     JOURNEY
+     ======================================================= */
+
+  .journey-roadmap,
+  .journey-new,
+  .journey-visual-new,
+  .journey-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+
+  /* =======================================================
+     CERTIFICATIONS
+     ======================================================= */
+
+  #certs .cert-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #certs .cert {
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    max-width: 82vw !important;
+  }
+
+
+  /* =======================================================
+     CONTACT
+     ======================================================= */
 
   .contact-modern-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    gap: 25px !important;
+  }
+
+  .contact-main,
+  .contact-side {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .contact-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    gap: 10px !important;
   }
 
   .contact-email-card,
   .contact-resume {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+
+  /* =======================================================
+     BUTTONS
+     ======================================================= */
+
+  .btn,
+  .current-btn,
+  .about-resume-btn,
+  .about-contact-btn,
+  .project-link {
     max-width: 100%;
+    white-space: normal;
   }
 
 
-  /* ---------- PROJECT CARDS ---------- */
+  /* =======================================================
+     LARGE VISUAL ELEMENTS
+     ======================================================= */
 
-  .project-image-grid {
-    width: 100%;
+  .photo-stage,
+  .skill-orb,
+  .orbit-why,
+  .project-visual {
+    max-width: 100% !important;
+  }
+
+
+  /* =======================================================
+     TYPOGRAPHY
+     ======================================================= */
+
+  h1 {
     max-width: 100%;
+    font-size: clamp(2.2rem, 10vw, 4rem);
+    line-height: 1.05;
   }
 
-  .project-image-grid .project-vfx {
-    flex-basis: 84vw !important;
-    width: 84vw !important;
-    max-width: 84vw !important;
-  }
-
-
-  /* ---------- CERTIFICATION CARDS ---------- */
-
-  #certs .cert-wrap {
-    width: 100%;
+  h2 {
     max-width: 100%;
+    font-size: clamp(1.7rem, 7vw, 3rem);
+    line-height: 1.1;
   }
 
-  #certs .cert {
-    flex-basis: 84vw !important;
-    max-width: 84vw;
+  h3 {
+    max-width: 100%;
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+
+  p {
+    max-width: 100%;
+    line-height: 1.7;
   }
 
 
-  /* ---------- TEXT ---------- */
+  /* =======================================================
+     PREVENT LONG VALUES FROM BREAKING PHONE
+     ======================================================= */
 
-  .project-links a,
+  .meta,
+  .actions,
+  .project-links,
+  .project-stack,
+  .contact-links {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .meta span,
   .project-stack span,
-  .meta span {
+  .project-links a,
+  .contact-links a {
     max-width: 100%;
     overflow-wrap: anywhere;
   }
-
-
-  /* ---------- FLEX ELEMENTS ---------- */
-
-  .current-actions,
-  .about-modern-actions,
-  .contact-links {
-    min-width: 0;
-    flex-wrap: wrap;
-  }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   VERY SMALL PHONES
    ========================================================= */
 
-@media (max-width: 420px) {
+@media screen and (max-width: 390px) {
 
   .wrap {
-    width: 90vw;
+    width: 90%;
+    max-width: 90%;
   }
 
-  .section-label {
-    font-size: 8px;
-    letter-spacing: .18em;
+  #nav {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    left: 8px !important;
+    right: 8px !important;
   }
-
-  .intro-line-1 {
-    letter-spacing: .12em !important;
-  }
-
-  .intro-enter {
-    letter-spacing: .18em;
-  }
-
-  .home-goal {
-    gap: 0 9px;
-  }
-
-
-  /* Make action buttons fit narrow screens */
-
-  .current-actions,
-  .about-modern-actions,
-  .contact-links {
-    width: 100%;
-  }
-
-  .current-actions a,
-  .about-modern-actions a,
-  .contact-links a {
-    max-width: 100%;
-  }
-
-
-  /* Project cards */
 
   .project-image-grid .project-vfx {
-    flex-basis: 88vw !important;
-    width: 88vw !important;
-    max-width: 88vw !important;
+    flex-basis: 86vw !important;
+    width: 86vw !important;
+    max-width: 86vw !important;
   }
 
-
-  /* Certification cards */
-
   #certs .cert {
-    flex-basis: 88vw !important;
-    max-width: 88vw;
+    flex-basis: 86vw !important;
+    width: 86vw !important;
+    max-width: 86vw !important;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 8vw, 2.4rem);
+  }
+
+  .about-modern-actions,
+  .current-actions,
+  .contact-links {
+    width: 100% !important;
   }
 }
 
 
 /* =========================================================
-   MOBILE LANDSCAPE
+   LANDSCAPE PHONE
    ========================================================= */
 
-@media (orientation: landscape) and (max-height: 560px) {
+@media screen and (max-width: 900px)
+       and (orientation: landscape)
+       and (max-height: 600px) {
 
-  .intro,
-  .home-cinematic,
-  #home.current-home {
-    min-height: 560px;
+  .hero-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+  }
+
+  .hero-copy,
+  .home-text {
+    width: 50% !important;
   }
 
   #nav {
     top: 6px !important;
-  }
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  * {
-    scroll-behavior: auto !important;
   }
 }
 </style>
